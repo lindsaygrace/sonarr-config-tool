@@ -22,7 +22,3 @@ repos:
     hooks:
       - id: go-fmt
       - id: go-lint
-  - repo: https://github.com/norwoodj/helm-docs
-    rev: v0.8.0
-    hooks:
-      - id: helm-docs
