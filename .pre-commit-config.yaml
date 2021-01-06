@@ -1,0 +1,28 @@
+---
+repos:
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.21.0
+    hooks:
+      - id: yamllint
+        args: [--format, parsable, --strict]
+        exclude: ^.*(chart/sonarr-config-tool/templates|deploy/argocd-application/templates)/.*$
+  - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
+    rev: 0.0.11
+    hooks:
+      - id: yamlfmt
+        args: [--mapping, '2', --offset, '2', --sequence, '4']
+        exclude: ^.*(chart/sonarr-config-tool/templates|deploy/argocd-application/templates)/.*$
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.10   # https://github.com/gruntwork-io/pre-commit/releases
+    hooks:
+      - id: helmlint
+      - id: shellcheck
+  - repo: git://github.com/dnephin/pre-commit-golang
+    rev: v0.3.5
+    hooks:
+      - id: go-fmt
+      - id: go-lint
+  - repo: https://github.com/norwoodj/helm-docs
+    rev: v0.8.0
+    hooks:
+      - id: helm-docs
